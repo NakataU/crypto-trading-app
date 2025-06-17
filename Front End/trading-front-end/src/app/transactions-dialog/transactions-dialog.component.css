@@ -1,0 +1,35 @@
+/* Wrapper for the transaction list */
+.transaction-list {
+    padding: 20px;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+  }
+  
+  /* Each transaction item as a simple card */
+  .transaction-item {
+    background-color: #aaaaaa;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  .transaction-asset{
+    font-weight: 500;
+  }
+
+  /* Conditional styling for BUY type - green */
+.transaction-type.buy {
+    color: #0f9d58; /* Green */
+    font-weight: 600;
+  }
+  
+  /* Conditional styling for SELL type - red */
+  .transaction-type.sell {
+    color: #d93025; /* Red */
+    font-weight: 600;
+  }
+  
+
+
+  

@@ -1,0 +1,7 @@
+<div class="asset-card" *ngFor="let asset of assets">
+    <div class="asset-info">
+      <strong>{{ asset.name }} ({{ asset.symbol }})</strong>
+      <div>You own: {{asset.quantity}}</div>
+      <div>{{ asset.price }} USD</div>
+    </div>
+</div>

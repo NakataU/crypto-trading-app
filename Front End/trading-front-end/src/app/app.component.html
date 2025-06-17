@@ -1,0 +1,48 @@
+<h1>CRYPTO SIMULATION</h1>
+
+<div class="main-container">
+  <!-- Left Section: Crypto Items -->
+  <div class="crypto-items-container" *ngIf="tickers | keyvalue as items; else loading">
+    <button class="crypto-item-container" *ngFor="let item of items" (click)="openDialog(item.key, item.value)">
+      <div class="crypto-item">
+        <!-- Display Cryptocurrency Name and Symbol -->
+        <div class="crypto--title">
+          {{ getName(item.key) }} ({{ item.key }})
+        </div>
+
+        <!-- Display Current Price -->
+        <div class="crypto--value">
+          {{ item.value }} USD
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <div class="user-profile-container">
+    <div class="user-header">
+      <!-- User Photo -->
+      <div class="user-photo">
+        <img src="https://cdn-icons-png.flaticon.com/512/2922/2922510.png" alt="User Icon" />
+      </div>
+  
+      <!-- User Info -->
+      <div class="user-info">
+        <h2 class="user-name">Welcome: {{currentUser.username}}</h2>
+        <p class="user-email">{{currentUser.email}}</p>
+        <p class="user-balance">Assets Balance: {{currentUser.balance}}</p>
+        <p class="user-freeBalance">Free cash: {{currentUser.freeBalance}}</p>
+      </div>
+    </div>
+  
+    <!-- Action Buttons -->
+    <div class="profile-actions">
+      <button class="action-btn" (click)="openAssetsDialog()">View Assets</button>
+      <button class="action-btn" (click)="openTransactionDialog()">View Transactions</button>
+      <button class="reset-btn" (click)="reset(currentUser.id)">Reset Profile</button>
+    </div>
+  </div>
+  
+
+<ng-template #loading>
+  <p>⏳ Waiting for first price…</p>
+</ng-template>

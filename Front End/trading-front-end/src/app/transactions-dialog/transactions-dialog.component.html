@@ -1,0 +1,9 @@
+<div class="transaction-list">
+    <div class="transaction-item" *ngFor="let transaction of transactions">
+      <div class="transaction-asset">Asset: {{ transaction.assetName }}</div>
+      <div class="transaction-type" [ngClass]="{ 'buy': transaction.type === 'BUY', 'sell': transaction.type === 'SELL' }">Type: {{ transaction.type | titlecase }}</div>
+      <div class="transaction-quantity">Quantity: {{ transaction.quantity }}</div>
+      <div class="transaction-total">Transaction Total: {{ (transaction.price) | number:'1.2-2' }} USD</div>
+      <div class="transaction-date">Transaction Date: {{ transaction.createdOn | date:'short' }}</div>
+    </div>
+  </div>

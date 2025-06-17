@@ -1,0 +1,31 @@
+<div style="padding: 20px; font-family: Arial, sans-serif; max-width: 400px;">
+    <div style="margin-bottom: 20px;">
+      <p><strong>Amount:</strong> {{ data.amount }}</p>
+      <p><strong>Price:</strong> {{ data.price }}</p>
+      <p><strong>Total:</strong> {{ total }}</p>
+      <p><strong>Your Balance:</strong> {{ data.user.freeBalance }}</p>
+  
+      <div *ngIf="!hasEnoughBalance" style="color: red; margin-top: 10px;">
+        There is not enough balance to complete this transaction!
+      </div>
+
+      <div *ngIf="isInvalidInput" style="color: red; margin-top: 10px;">
+        Please enter amount greater than 0!
+      </div>
+
+      <div *ngIf="!ifThisAmountAvailable" style="color: red; margin-top: 10px;">
+        There is not enough amount to sell!
+      </div>
+
+    </div>
+  
+    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+      <button mat-button 
+              color="primary" 
+              [disabled]="!hasEnoughBalance || isInvalidInput || !ifThisAmountAvailable" 
+              [mat-dialog-close]="'confirm'" (click)="sellCrypto()">
+        Confirm
+      </button>
+      <button mat-button color="warn" [mat-dialog-close]="'cancel'">Cancel</button>
+    </div>
+  </div>

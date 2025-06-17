@@ -1,0 +1,38 @@
+<div class="crypto-dialog-container">
+    <!-- Header -->
+    <div class="crypto-name">
+      <h2>{{ data.name }}</h2>
+      <span class="symbol">({{ data.symbol }})</span>
+    </div>
+  
+    <!-- Price -->
+    <div class="crypto-price">
+      <p><strong>Current Price:</strong> ${{ data.price }}</p>
+    </div>
+  
+    <!-- Quantity You Have -->
+    <div class="crypto-quantity">
+      <p><strong>Quantity You Own:</strong> {{assetQuantity}}</p>
+    </div>
+  
+    <hr />
+  
+    <!-- Buy Section -->
+    <div class="trade-section">
+      <h3>Buy</h3>
+      <div class="crypto--action">
+        <input type="number" placeholder="Amount" #buyAmount>
+        <button class="buy-btn" (click)="openPopUp(buyAmount, data.price)">Buy</button>
+      </div>
+    </div>
+  
+    <!-- Sell Section -->
+    <div class="trade-section">
+      <h3>Sell</h3>
+      <div class="crypto--action">
+        <input type="number" placeholder="Amount" #sellAmount>
+        <button class="sell-btn" (click) = "openSellDialog(sellAmount, data.price)">Sell</button>
+      </div>
+    </div>
+  </div>
+  
