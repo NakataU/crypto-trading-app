@@ -11,6 +11,7 @@ public class TransactionOutView {
     private Long id;
     private TransactionType type;
     private String assetName;
+    private String assetSymbol;
     private BigDecimal quantity;
     private BigDecimal price;
     private LocalDateTime createdOn;

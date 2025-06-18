@@ -22,7 +22,7 @@ public interface IAssetRepository extends JpaRepository<Asset, Long> {
     @Query("SELECT a FROM Asset a WHERE a.isActive = true AND a.id = :id")
     Optional<Asset> findByIdIsActive(@Param("id") Long id);
 
-    @Query("SELECT a FROM Asset a WHERE a.isActive = true AND a.userId = :id")
+    @Query("SELECT a FROM Asset a WHERE a.isActive = true AND a.userId = :id AND a.quantity!=0")
     Page<Asset> findByUserIdIsActive(@Param("id") Long id, Pageable pageable);
 
     @Query("SELECT a FROM Asset a WHERE a.isActive = true AND a.name = :name AND a.userId = :userId")
